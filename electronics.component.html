@@ -1,0 +1,40 @@
+<h1> Electronics </h1>
+<button id="myBtn" class="btn btn-warning btn-lg" (click)="newMessage()">
+    <span class="glyphicon glyphicon-shopping-cart"></span> <b> Go to Cart </b></button>
+
+<div class="container">
+
+<table  class="table-responsive " *ngFor="let data of ElectronicsData">
+  <tr >
+    <td style="padding-right: 250px" rowspan="11"><img src={{data.imageUrl}} height="250" width="250"></td>
+  </tr>
+  <tr >
+    <td> Product Id : </td> <td> {{data.id}}</td>
+  </tr>
+  <tr >
+    <td> Product Name :</td> <td> {{data.name}}</td>
+   </tr> <tr >
+    <td> Price :</td> <td> {{data.price | currency:'INR':true:'1.2-2'}} </td>
+   </tr> <tr >
+    <td> Brand : </td> <td>{{data.brand}}</td>
+   </tr> <tr >
+    <td> Discount :</td> <td> {{data.discount}}%</td>
+   </tr> <tr >
+    <td> Description :</td> <td> {{data.description}}</td>
+    </tr><tr >
+    <td> Rating : </td> <td>{{data.rating}} </td>
+   </tr>
+  <tr  *ngIf="data.buy"><td> <button  class="btn btn-success" (click) = "toggleBuy(data);" >
+    <span class="glyphicon glyphicon-ok"></span> Add to Cart
+    
+  </button>
+  </tr>
+  <tr *ngIf="!data.buy"><td> <button  class="btn btn-danger" (click) = "toggleBuy(data);" >
+    <span class="glyphicon glyphicon-trash"></span> Remove From Cart
+    
+  </button>
+  </tr>
+<hr>
+</table>
+
+</div>

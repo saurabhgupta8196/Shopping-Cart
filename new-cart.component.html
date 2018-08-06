@@ -1,0 +1,29 @@
+<div *ngIf="message.size != 0">
+
+<table *ngFor="let cart of message.keys()">
+  <tr >
+    <td style="padding-right: 250px" rowspan="11"><img src={{message.get(cart).imageUrl}} height="250" width="250"></td>
+  </tr>
+  <tr >
+    <td> Product Id : </td> <td> {{message.get(cart).id}}</td>
+  </tr>
+  <tr >
+    <td> Product Name :</td> <td> {{message.get(cart).name}}</td>
+   </tr> <tr >
+    <td> Price :</td> <td> {{message.get(cart).price | currency:'INR':true:'1.2-2'}} </td>
+   </tr> <tr >
+    <td> Brand : </td> <td>{{message.get(cart).brand}}</td>
+   </tr> <tr >
+    <td> Discount :</td> <td> {{message.get(cart).discount}}%</td>
+    </tr>
+    <tr>
+      <td colspan="2"><button (click)="Removeitem(message.get(cart));" 
+        class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Remove form cart</button></td>
+    </tr>
+  </table>
+
+  <button id="myBtn" class="btn btn-warning btn-lg" (click)="goToBill()">
+    <span class="glyphicon glyphicon-shopping-cart"></span> <b> Genetrate Bill </b></button>
+
+
+</div>

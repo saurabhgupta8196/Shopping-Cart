@@ -1,0 +1,15 @@
+
+
+    <h1 style="text-align:center" >Select Category</h1>
+<div class="grid grid-pad" *ngFor="let product of products" class="col-1-4" >
+ <img src={{product.imageUrl}} width='250px'height='300px'/>
+ </div>
+
+<div class="grid grid-pad">
+  <a *ngFor="let product of products" class="col-1-4" (click)='goSearch(product.pagedisplay)'>
+    <div class="module product">
+      <h4>{{product.productName}}</h4>
+    </div>
+  </a>
+</div>
+

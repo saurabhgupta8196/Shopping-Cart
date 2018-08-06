@@ -1,0 +1,25 @@
+<h3>Cart Info</h3>
+<div class="header">
+  <span style="color:#ffffff"> CART </span>
+</div><hr>
+<br>
+<div class="carts-body-container row">
+  <div class="cart-product-container container row" *ngFor="let item of items">
+    <div class="col-md-5">
+      <img src="assets/images/{{item.product.photo}}" alt="" class="custom-image-style">
+    </div>
+    <div class="cart-product-desc col-md-3">
+      <div><p>{{item.product.id}}</p></div>
+      <div><p>{{item.product.name}}</p></div>
+      <div><p>{{item.product.price}}</p></div>
+      <div><p>{{item.product.quantity}}</p></div>
+      <div><p><strong>{{item.product.price*item.quantity}}</strong></p></div>
+      <div><p><strong>{{total}}</strong></p></div>
+    </div>
+    <div id="xbutton" class="col-md-2">
+      <a class="text-danger" (click)="remove(item.product.id)"><strong>X</strong></a>
+    </div>
+    
+  </div>
+
+

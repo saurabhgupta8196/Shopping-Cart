@@ -1,0 +1,22 @@
+<h1>Your Purchased Items</h1>
+<table *ngFor="let cart of message.keys()">
+  <tr >
+    <td style="padding-right: 250px" rowspan="11"><img src={{message.get(cart).imageUrl}} height="250" width="250"></td>
+  </tr>
+  <tr >
+    <td> Product Id : </td> <td> {{message.get(cart).id}}</td>
+  </tr>
+  <tr >
+    <td> Product Name :</td> <td> {{message.get(cart).name}}</td>
+   </tr> <tr >
+    <td> Price :</td> <td> {{message.get(cart).price | currency:'INR':true:'1.2-2'}} </td>
+   </tr> <tr >
+    <td> Brand : </td> <td>{{message.get(cart).brand}}</td>
+   </tr> <tr >
+    <td> Discount :</td> <td> {{message.get(cart).discount}}%</td>
+    </tr>
+    
+  </table>
+
+
+  <h3>Amount To be Paid : {{price | currency:'INR':true:'1.2-2'}}</h3>
